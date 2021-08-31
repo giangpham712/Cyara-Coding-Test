@@ -79,17 +79,20 @@ namespace CyaraCodingTest.Application.Services
             var token = await _apiTokenRepository.FindByTokenAsync(request.ApiToken);
             if (token == null)
             {
-                throw new EntityNotFoundException("Invalid API token provided");
+                throw new EntityNotFoundException("API token not found");
             }
 
             if (token.ValidTo < DateTime.Now)
             {
-                throw new TokenValidationException("API token not found");
+                throw new TokenValidationException("API token expired");
             }
 
             return new ApiData()
             {
-                AppUrl = token.AppUrl
+                AppUrl = token.AppUrl,
+                ApiToken = token.Token,
+                ValidTo = token.ValidTo,
+                IsActive = token.IsActive
             };
         }
     }

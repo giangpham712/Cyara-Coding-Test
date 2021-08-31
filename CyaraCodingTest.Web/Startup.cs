@@ -116,16 +116,9 @@ namespace CyaraCodingTest.Web
         {
             userManager.CreateAsync(new ApplicationUser() {UserName = "admin"}, "Password@123").GetAwaiter().GetResult();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseMiddleware<ErrorHandlingMiddleware>();
-                
-                app.UseHsts();
-            }
+            app.UseMiddleware<ErrorHandlingMiddleware>();
+
+            app.UseHsts();
 
             app.UseSwagger();
 
