@@ -1,0 +1,20 @@
+Build App
+Build solution in Visual Studio, or run the following command in project root folder:
+
+dotnet build
+Run App
+I used ASP.NET Core Web Application + Angular template in Visual Studio to implement the app so the frontend app will be hosted by the same .NET application
+
+Run with F5 in Visual Studio, or with the following command in project root folder:
+
+dotnet run --project CyaraCodingTest.Web
+If run from Visual Studio, the web app can be accessed at:
+
+https://localhost:44306
+If run from command line, the web app can be accessed at:
+
+https://localhost:5001
+A default admin user is populated at app initialization with the following credentials:
+
+User name: admin
+Password: Password@123
