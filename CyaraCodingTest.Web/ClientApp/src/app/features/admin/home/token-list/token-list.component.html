@@ -1,0 +1,35 @@
+<div class="">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Token Column -->
+    <ng-container matColumnDef="token">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Token </th>
+      <td mat-cell *matCellDef="let element"> 
+        {{element.apiToken}}
+      </td>
+    </ng-container>
+
+    <!-- App URL Column -->
+    <ng-container matColumnDef="appUrl">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> App URL </th>
+      <td mat-cell *matCellDef="let element"> {{element.appUrl}} </td>
+    </ng-container>
+
+    <!-- Valid To Column -->
+    <ng-container matColumnDef="validTo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Valid To </th>
+      <td mat-cell *matCellDef="let element"> {{element.validTo | date:'medium'}} </td>
+    </ng-container>
+
+    <!-- Active Column -->
+    <ng-container matColumnDef="isActive">
+      <th mat-header-cell *matHeaderCellDef> Active </th>
+      <td mat-cell *matCellDef="let element"> 
+        <mat-slide-toggle [ngModel]="element.isActive" (change)="toggleStatus(element)"></mat-slide-toggle>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>New API Token</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input matInput placeholder="App URL" formControlName="appUrl" required>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button  color="primary" [mat-dialog-close]="form.value" [disabled]="form.invalid" cdkFocusInitial>Save</button>
+</div>

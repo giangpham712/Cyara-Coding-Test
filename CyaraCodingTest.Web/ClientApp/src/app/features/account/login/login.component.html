@@ -1,0 +1,16 @@
+<main class="form-signin">
+  <form [formGroup]="form" (submit)="login()">
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <div>
+      <mat-form-field>
+        <mat-label>User name</mat-label>
+        <input matInput placeholder="Enter user name" formControlName="userName" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="Enter password" formControlName="password" required>
+      </mat-form-field>
+    </div>
+    <button mat-flat-button type="submit" color="primary">Sign in</button>
+  </form>
+</main>

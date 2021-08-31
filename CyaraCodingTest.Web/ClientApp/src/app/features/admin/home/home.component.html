@@ -1,0 +1,6 @@
+<div class="clearfix">
+  <h2 class="float-start">API Tokens</h2>
+  <button mat-flat-button color="primary" class="float-end" (click)="addNew()">Add New API Token</button>
+</div>
+
+<app-token-list [tokens]="homeService.tokens$ | async"></app-token-list>
